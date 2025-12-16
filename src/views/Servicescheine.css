@@ -1,0 +1,78 @@
+.servicescheine-view {
+  max-width: 1800px;
+}
+
+.filter-section {
+  margin-bottom: 2rem;
+}
+
+.filter-select {
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.nummer-cell {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.badge-offen {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badge-in_bearbeitung {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.badge-abgeschlossen {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-gesendet {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-fehlgeschlagen {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.status-ausstehend {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.icon-check {
+  color: #10b981;
+  font-size: 1.25rem;
+}
+
+.icon-cross {
+  color: #ef4444;
+  font-size: 1.25rem;
+}
+
+.download-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.download-btn:hover {
+  background-color: #2563eb;
+}
