@@ -1,0 +1,39 @@
+.material-view {
+  max-width: 1600px;
+}
+
+.artikelnummer-cell {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.low-stock {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.badge-eingang {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badge-ausgang {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.badge-korrektur {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.text-green {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.text-red {
+  color: #ef4444;
+  font-weight: 600;
+}
