@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { AxiosError } from 'axios';
+import type { AxiosError } from 'axios';
 
 export interface UseApiState<T> {
   data: T | null;
@@ -9,8 +9,8 @@ export interface UseApiState<T> {
 }
 
 export function useApi<T>(
-  apiCall: () => Promise<any>,
-  dependencies: any[] = []
+  apiCall: () => Promise<{ success: boolean; data?: T; error?: string }>,
+  dependencies: unknown[] = []
 ): UseApiState<T> {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -22,7 +22,7 @@ export function useApi<T>(
     try {
       const response = await apiCall();
       if (response.success) {
-        setData(response.data);
+        setData(response.data || null);
       } else {
         setError(response.error || 'An error occurred');
       }
@@ -36,23 +36,23 @@ export function useApi<T>(
 
   useEffect(() => {
     fetchData();
-  }, dependencies);
+  }, [fetchData, ...dependencies]);
 
   return { data, loading, error, refetch: fetchData };
 }
 
-export function useApiMutation<T, P = any>() {
+export function useApiMutation<T, P = unknown>() {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const mutate = useCallback(async (apiCall: (params: P) => Promise<any>, params: P) => {
+  const mutate = useCallback(async <ActualP extends P>(apiCall: (params: ActualP) => Promise<{ success: boolean; data?: T; error?: string }>, params: ActualP) => {
     setLoading(true);
     setError(null);
     try {
       const response = await apiCall(params);
       if (response.success) {
-        setData(response.data);
+        setData(response.data || null);
         return response.data;
       } else {
         const errorMsg = response.error || 'An error occurred';

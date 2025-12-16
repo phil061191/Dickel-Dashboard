@@ -34,7 +34,7 @@ const MitarbeiterView = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await updateMutate((params: any) => mitarbeiterApi.update(params.id, params.data), { id: editingId, data: formData });
+        await updateMutate((params: { id: string; data: Partial<Mitarbeiter> }) => mitarbeiterApi.update(params.id, params.data), { id: editingId, data: formData });
         alert('Mitarbeiter erfolgreich aktualisiert');
       } else {
         await createMutate(mitarbeiterApi.create, formData);
@@ -44,7 +44,7 @@ const MitarbeiterView = () => {
       setEditingId(null);
       resetForm();
       refetch();
-    } catch (err) {
+    } catch {
       alert('Fehler beim Speichern des Mitarbeiters');
     }
   };
@@ -70,7 +70,7 @@ const MitarbeiterView = () => {
       await deleteMutate(mitarbeiterApi.delete, id);
       alert('Mitarbeiter erfolgreich gelöscht');
       refetch();
-    } catch (err) {
+    } catch {
       alert('Fehler beim Löschen des Mitarbeiters');
     }
   };

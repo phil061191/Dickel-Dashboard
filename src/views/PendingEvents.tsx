@@ -31,7 +31,7 @@ const PendingEvents = () => {
       alert('Ereignis wird erneut versucht');
       refetchPending();
       refetchFailed();
-    } catch (err) {
+    } catch {
       alert('Fehler beim Wiederholen des Ereignisses');
     }
   };
@@ -42,7 +42,7 @@ const PendingEvents = () => {
       alert('Ereignis wurde akzeptiert');
       refetchPending();
       refetchFailed();
-    } catch (err) {
+    } catch {
       alert('Fehler beim Akzeptieren des Ereignisses');
     }
   };
@@ -53,7 +53,7 @@ const PendingEvents = () => {
       alert('Ereignis wird erneut gesendet');
       refetchPending();
       refetchFailed();
-    } catch (err) {
+    } catch {
       alert('Fehler beim erneuten Senden des Ereignisses');
     }
   };

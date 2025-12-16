@@ -22,7 +22,7 @@ const ServicescheineView = () => {
     try {
       const blob = await servicescheineApi.downloadPdf(id);
       downloadFile(blob, `Serviceschein_${nummer}.pdf`);
-    } catch (err) {
+    } catch {
       alert('Fehler beim Herunterladen des PDFs');
     }
   };
@@ -32,7 +32,7 @@ const ServicescheineView = () => {
       await resendMutate(servicescheineApi.resend, id);
       alert('Serviceschein wird erneut gesendet');
       refetch();
-    } catch (err) {
+    } catch {
       alert('Fehler beim erneuten Senden');
     }
   };

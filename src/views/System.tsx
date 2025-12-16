@@ -35,7 +35,7 @@ const SystemView = () => {
       alert('Synchronisation wird wiederholt');
       refetchHealth();
       refetchErrors();
-    } catch (err) {
+    } catch {
       alert('Fehler beim Wiederholen der Synchronisation');
     }
   };
